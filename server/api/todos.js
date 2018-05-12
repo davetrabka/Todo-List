@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Todo} = require('../db')
+const { Todo } = require('../db')
 
 router.get('/', (req, res, next) => {
   Todo.findAll()
@@ -29,8 +29,8 @@ router.put('/:todoId', (req, res, next) => {
 router.delete('/:todoId', (req, res, next) => {
   Todo.destroy({
     where: {
-      id: req.params.todoId
-    }
+      id: req.params.todoId,
+    },
   })
     .then(() => res.status(204).end())
     .catch(next)
